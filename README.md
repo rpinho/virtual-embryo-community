@@ -1,5 +1,7 @@
 # VE Community: stage checks, submission selection and proxy design
 
+Part of my AI-for-biology work: [the map and the field retro](https://github.com/rpinho/ai-biology).
+
 `ve-stagecheck` checks a local public atlas sample sheet against the published
 external-data stage windows. It groups technical records by sample, handles
 explicit age intervals and uncertainty, and routes morphological or litter-based
