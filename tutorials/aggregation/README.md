@@ -157,6 +157,11 @@ the resulting repeat totals and, for a paired comparison, their within-repeat
 differences. Do not substitute a table of mean raw metrics for the repeat
 panels when the intended estimand is mean repeat score.
 
+The earlier [Local Scoring Wrapper](https://github.com/xxx12e/vec-community-kit/tree/main/vec_local_score)
+already provides per-seed skill aggregation, multi-seed summaries and paired
+task-score differences. This lesson adds explicit counterexamples to
+averaging raw metrics before conversion and an example that changes panel
+spread while holding metric marginals fixed.
 [VEC BatchRank](https://github.com/random-guy-05/vec-batchrank), filed first,
 already converts each scorer repeat before summarising aggregate scores.
 Use it for actual candidate batches. This lesson explains why that order
@@ -169,7 +174,7 @@ a covariance counterexample rather than another general score calculator.
 accounts for points and headroom in one panel.
 [VEC Bootstrap](https://github.com/random-guy-05/vec-bootstrap) already covers
 cell resampling and paired raw-metric uncertainty; its interpretation limits
-also matter here. All four resources are credited as prior work.
+also matter here. All five resources are credited as prior work.
 
 For repeated candidate searches, winner's curse and paired comparisons, see
 [this repository's selection tutorial](../selection/README.md). For whether
