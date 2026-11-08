@@ -123,7 +123,8 @@ in search of score gains. These deliberately variable inputs demonstrate
 what the summary measures. A candidate with high mean repeat skill and wide
 repeat spread carries a different risk from a stable one; the
 [selection tutorial](../selection/README.md)'s paired-difference advice
-resolves the choice.
+informs comparisons under matched conditions; the decision still depends on
+the objective and uncertainty.
 
 **Crossing the ceiling.** Some of A's repeats beat the ceiling. Their extra
 raw improvement earns no extra skill. The clipping boundary removes the
