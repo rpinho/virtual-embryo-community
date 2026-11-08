@@ -14,6 +14,7 @@ Contents:
 - `ve-stagecheck`: specimen-level stage-window triage for public atlas sample sheets (below).
 - [tutorials/selection](tutorials/selection/README.md): synthetic-only tutorial on choosing what to submit after a large candidate search.
 - [tutorials/proxy](tutorials/proxy/README.md): synthetic-only tutorial on whether a local proxy board is as hard as the test: horizon leakage, checking a last-step extrapolation rule and a conservative screen for choosing between disagreeing proxies.
+- [tutorials/aggregation](tutorials/aggregation/README.md): synthetic-only tutorial on repeated-score aggregation, nonlinear rank reversals, signed cancellation and panel covariance.
 
 MIT licensed. Built for participants of the [Virtual Embryo Challenge](https://virtualembryo.ai/challenge). It uses no challenge data, and the challenge data stay under the challenge Terms of Use.
 
