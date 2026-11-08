@@ -16,7 +16,7 @@ From the repository root, with Python:
 
 ```sh
 python tutorials/aggregation/aggregation.py
-uv run --with pytest --python 3.12 env PYTHONPATH=src python -m pytest -q
+uv run --with pytest --python 3.12 env PYTHONPATH=src python -m pytest -q tests/test_aggregation.py
 ```
 
 The script uses the standard library and prints plain text. It reads and
@@ -29,7 +29,10 @@ The [published scoring definition](https://virtualembryo.ai/challenge/evaluation
 converts a raw metric using its distance from the ceiling, measured in units
 of the floor-to-ceiling gap. The floor is the midpoint of the skill scale,
 not a lower clipping threshold. Better-than-ceiling values receive full
-skill. Signed zero-ideal metrics use absolute values, including for anchors.
+skill. Signed zero-ideal metrics are scored on absolute value as
+lower-is-better terms. The page's anchor table adds that two-sided metrics
+are compared on absolute value, anchors included; the cited local tools do
+the same.
 Missing or nonfinite declared metrics contribute zero with their weight kept.
 
 For this lesson only, use the invented lower-is-better anchors printed below.
@@ -44,7 +47,14 @@ skill of mean raw = skill(mean_r(m_r))
 mean repeat skill = mean_r(skill(m_r))
 ```
 
-Both summaries have a meaning. If the desired quantity is the average of
+Both summaries have a meaning. The
+[published definition](https://virtualembryo.ai/challenge/evaluation?section=scoring&task=1)
+converts each raw metric a submission produces. Some metrics use random
+sampling, such as random gene pairs or subsampling to a shared cell count.
+The page does not describe scorer repeats or converting a raw mean. If your
+local repeats model that sampling, the comparable summary is mean repeat
+skill; skill of the raw mean is a quantity the page never describes.
+If the desired quantity is the average of
 repeat board scores, convert within each repeat, then average. Transforming
 the raw mean estimates a different quantity. A raw-metric mean remains
 useful when that is the scientific quantity being studied. Neither summary
@@ -86,7 +96,7 @@ A             0.000          100.000           50.000
 B             0.250           80.000           80.000
 Winner by skill(mean raw): A; by mean(skill raw): B
 
-5. Missing repeats keep their weight
+5. A missing metric inside one repeat keeps its weight
 raw=(0.0, None); skill(mean raw)=undefined
 mean repeat skill=50.000; dropping missing=100.000
 
@@ -110,7 +120,10 @@ convexity makes the mean of converted values at least the converted mean.
 This is Jensen's inequality applied to the stated score utility. It does
 not establish that A is a better generative model, or justify adding noise
 in search of score gains. These deliberately variable inputs demonstrate
-what the summary measures.
+what the summary measures. A candidate with high mean repeat skill and wide
+repeat spread carries a different risk from a stable one; the
+[selection tutorial](../selection/README.md)'s paired-difference advice
+resolves the choice.
 
 **Crossing the ceiling.** Some of A's repeats beat the ceiling. Their extra
 raw improvement earns no extra skill. The clipping boundary removes the

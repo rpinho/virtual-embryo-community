@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Invented repeated-score examples. No files, network, fitting or dependencies."""
 
+import sys
 from math import isclose, isfinite, sqrt
 from statistics import fmean, stdev
 
@@ -9,7 +10,8 @@ def skill(raw, floor=1.0, ceiling=0.0, direction="lower"):
     """Published hyperbolic conversion, using invented default anchors.
 
     Missing/nonfinite raw metrics contribute zero. Absolute-value metrics
-    transform the raw value AND anchors before computing their distance.
+    are scored on absolute value as lower-is-better terms; the published
+    anchor table and the cited local tools also take absolute anchors.
     """
     if direction not in ("lower", "higher", "absolute"):
         raise ValueError("direction must be lower, higher or absolute")
@@ -101,7 +103,7 @@ def main():
         mean_first = "A" if results[0]["skill_of_mean"] > results[1]["skill_of_mean"] else "B"
         repeat_first = "A" if results[0]["mean_skill"] > results[1]["mean_skill"] else "B"
         print(f"Winner by skill(mean raw): {mean_first}; by mean(skill raw): {repeat_first}")
-    print("\n5. Missing repeats keep their weight")
+    print("\n5. A missing metric inside one repeat keeps its weight")
     missing = compare((0.0, None))
     print("raw=(0.0, None); skill(mean raw)=undefined")
     print(f"mean repeat skill={100 * missing['mean_skill']:.3f}; dropping missing=100.000")
@@ -122,4 +124,7 @@ def main():
 
 
 if __name__ == "__main__":
+    if len(sys.argv) > 1:
+        print(__doc__)
+        sys.exit(0 if sys.argv[1] in ("-h", "--help") else 2)
     main()

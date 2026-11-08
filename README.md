@@ -1,4 +1,4 @@
-# Virtual Embryo Community: stage checks, submission selection and proxy design
+# Virtual Embryo Community: stage checks, submission selection, proxy design and score aggregation
 
 Part of my AI-for-biology work: [the map and the field retro](https://github.com/rpinho/ai-biology).
 
@@ -22,8 +22,10 @@ The [selection tutorial](tutorials/selection/README.md) uses only synthetic
 scores to explain the winner's curse, sealed selection, paired comparisons and
 expected improvement for a final best-of-k attempt. The [proxy tutorial](tutorials/proxy/README.md)
 uses only simulated trajectories to show when a local proxy is easier than
-the test. Both Python scripts run without runtime dependencies; their checks
-run with the repository's pytest suite.
+the test. The [aggregation tutorial](tutorials/aggregation/README.md) uses
+only invented metric rows to show why repeat scores are converted before
+averaging. All three tutorial scripts run without runtime dependencies; their
+checks run with the repository's pytest suite.
 
 ## Install and use
 
