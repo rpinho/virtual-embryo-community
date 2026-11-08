@@ -1,4 +1,4 @@
-# VE Community: stage checks, submission selection and proxy design
+# Virtual Embryo Community: stage checks, submission selection and proxy design
 
 Part of my AI-for-biology work: [the map and the field retro](https://github.com/rpinho/ai-biology).
 
