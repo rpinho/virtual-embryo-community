@@ -1,3 +1,5 @@
+![Virtual Embryo Community](assets/banner.png)
+
 # Virtual Embryo Community: stage checks, submission selection, proxy design and score aggregation
 
 Part of my AI-for-biology work: [the map and the field retro](https://github.com/rpinho/ai-biology).
